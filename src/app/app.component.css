@@ -1,0 +1,14 @@
+.top-nav {
+  display: flex;
+}
+
+.top-nav .nav-link {
+  margin-right: 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #303030;
+}
+
+.top-nav .nav-link.active {
+  color: #68d968;
+}
