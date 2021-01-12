@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~normalize.css';
+@import 'shared/variables.css';
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
+  font-size: var(--base-font-size);
+}

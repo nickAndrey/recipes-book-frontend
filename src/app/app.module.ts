@@ -8,6 +8,7 @@ import { ProductsComponent } from './products/products.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { TopNavComponent } from './components/top-nav/top-nav.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ProductsComponent, HomeComponent],
+  declarations: [AppComponent, ProductsComponent, HomeComponent, TopNavComponent],
   imports: [BrowserModule, HttpClientModule, ReactiveFormsModule, RouterModule.forRoot(routes)],
   providers: [AppService],
   bootstrap: [AppComponent],
