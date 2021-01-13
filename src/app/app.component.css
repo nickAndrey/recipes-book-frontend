@@ -1,0 +1,16 @@
+.top-nav {
+  display: flex;
+  padding: 15px;
+  box-shadow: 0 0 4px 0 var(--base-black);
+}
+
+.top-nav .nav-link {
+  margin-right: 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--base-black);
+}
+
+.top-nav .nav-link.active {
+  color: var(--base-green);
+}

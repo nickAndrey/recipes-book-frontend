@@ -1,0 +1,6 @@
+<div class="card">
+  <a [routerLink]="['./recipe/' + recipeId]" class="recipe-img-container">
+    <img src="{{ imageUrl }}" alt="{{ name }}" class="recipe-img" />
+  </a>
+  <a [routerLink]="['./recipe/' + recipeId]" class="recipe-name">{{ name }}</a>
+</div>
