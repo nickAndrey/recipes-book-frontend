@@ -14,7 +14,7 @@ export class RecipesService {
     return this.http.post(environment.API + 'recipes', data);
   }
 
-  read(id: string = ''): Observable<any> {
+  read(id: IRecipeModel['recipeId'] = ''): Observable<any> {
     if (id) {
       return this.http.get(environment.API + 'recipes/' + id);
     } else {
@@ -22,11 +22,11 @@ export class RecipesService {
     }
   }
 
-  update(id: string, data: IRecipeModel): Observable<any> {
+  update(id: IRecipeModel['recipeId'], data: IRecipeModel): Observable<any> {
     return this.http.put(environment.API + 'recipes/' + id, data);
   }
 
-  delete(data: any): Observable<any> {
+  delete(data: IRecipeModel): Observable<any> {
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
