@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { AdminComponent } from './admin.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,16 @@ const routes: Routes = [
       {
         path: 'recipes',
         component: RecipesComponent,
+      },
+      {
+        path: 'recipes/create',
+        component: RecipeComponent,
+        data: { type: 'create' },
+      },
+      {
+        path: 'recipes/:id',
+        component: RecipeComponent,
+        data: { type: 'edit' },
       },
     ],
   },

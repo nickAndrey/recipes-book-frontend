@@ -1,0 +1,11 @@
+.top-panel {
+  margin-bottom: 15px;
+}
+
+.recipes-table {
+  width: 100%;
+}
+
+.actions *[mat-raised-button] {
+  margin-right: 10px;
+}

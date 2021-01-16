@@ -7,6 +7,8 @@ import { AppService } from './services/app.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AdminModule } from './admin/admin.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 const routes: Routes = [
   {
@@ -29,6 +31,8 @@ const routes: Routes = [
       preloadingStrategy: PreloadAllModules,
     }),
     AdminModule,
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [AppService],
   bootstrap: [AppComponent],

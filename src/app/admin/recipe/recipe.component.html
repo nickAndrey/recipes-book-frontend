@@ -1,0 +1,33 @@
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" class="recipe-form" *ngIf="recipeForm">
+  <mat-form-field class="form-group">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label>Time</mat-label>
+    <input matInput formControlName="cooktime" />
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label>Method</mat-label>
+    <input matInput formControlName="cookingmethod" />
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label>Category</mat-label>
+    <input matInput formControlName="recipecategory" />
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label>Cuisine</mat-label>
+    <input matInput formControlName="recipecuisine" />
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label>Ingredient</mat-label>
+    <input matInput formControlName="recipeingredient" />
+  </mat-form-field>
+
+  <button mat-raised-button>Save</button>
+</form>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipesService } from '../../services/recipes.service';
+import { IRecipeModel } from '../../../models/recipe.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recipes',
@@ -6,7 +9,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipes.component.css'],
 })
 export class RecipesComponent implements OnInit {
-  constructor() {}
+  recipes: IRecipeModel[];
+  displayedColumns = [
+    'id',
+    'name',
+    'cooktime',
+    'cookingmethod',
+    'recipecategory',
+    'recipecuisine',
+    'recipeingredient',
+    'datecreated',
+    'actions',
+  ];
 
-  ngOnInit(): void {}
+  infoAboutAddedElement: any;
+
+  constructor(private recipeService: RecipesService, private activatedRoute: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.activatedRoute.data.subscribe((data) => (this.infoAboutAddedElement = data));
+
+    this.recipeService.read().subscribe((data) => {
+      this.recipes = data.rows;
+    });
+  }
+
+  onDeleteRecipe(id: IRecipeModel['id']): void {
+    this.recipeService.delete(id).subscribe((data) => {
+      console.log(data);
+    });
+  }
 }

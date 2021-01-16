@@ -9,7 +9,7 @@ export class AppService {
   constructor(private http: HttpClient) {}
 
   getHomePage(): any {
-    return this.http.get(environment.API + '/');
+    return this.http.get(environment.API);
   }
 
   addProduct(data): any {

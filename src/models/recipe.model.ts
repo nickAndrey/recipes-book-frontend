@@ -1,5 +1,10 @@
 export interface IRecipeModel {
-  imageUrl: string;
+  id: string;
   name: string;
-  recipeId: string;
+  cooktime: string;
+  cookingmethod: string;
+  recipecategory: string;
+  recipecuisine: string;
+  recipeingredient: string;
+  datecreated: string;
 }

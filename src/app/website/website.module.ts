@@ -7,9 +7,16 @@ import { WebsiteComponent } from './website.component';
 import { FoodCardComponent } from './food-card/food-card.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
-  declarations: [HomeComponent, WebsiteComponent, FoodCardComponent, RecipeComponent, NotFoundComponent],
-  imports: [CommonModule, WebsiteRoutingModule],
+  declarations: [
+    HomeComponent,
+    WebsiteComponent,
+    FoodCardComponent,
+    RecipeComponent,
+    NotFoundComponent,
+  ],
+  imports: [CommonModule, WebsiteRoutingModule, MaterialModule],
 })
 export class WebsiteModule {}

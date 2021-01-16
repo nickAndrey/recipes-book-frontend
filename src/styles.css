@@ -7,4 +7,25 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Helvetica Neue', Arial, sans-serif;
   font-size: var(--base-font-size);
+  height: 100%;
+}
+
+.button {
+  border: 1px solid var(--base-grey);
+  color: var(--base-black);
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.button:focus {
+}
+
+.button:hover {
+  background: var(--base-grey);
+}
+
+.button:active {
 }

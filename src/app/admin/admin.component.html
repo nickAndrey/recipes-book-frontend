@@ -1,3 +1,9 @@
-<p>admin works!</p>
-
-<router-outlet></router-outlet>
+<div class="wrapper">
+  <nav>
+    <a routerLink="/admin/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/admin/recipes" routerLinkActive="active">Recipes</a>
+  </nav>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
