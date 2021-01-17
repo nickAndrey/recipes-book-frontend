@@ -26,17 +26,21 @@ export class RecipesComponent implements OnInit {
 
   constructor(private recipeService: RecipesService, private activatedRoute: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    this.activatedRoute.data.subscribe((data) => (this.infoAboutAddedElement = data));
-
+  getRecipes(): void {
     this.recipeService.read().subscribe((data) => {
       this.recipes = data.rows;
     });
   }
 
+  ngOnInit(): void {
+    this.activatedRoute.data.subscribe((data) => (this.infoAboutAddedElement = data));
+    this.getRecipes();
+  }
+
   onDeleteRecipe(id: IRecipeModel['id']): void {
     this.recipeService.delete(id).subscribe((data) => {
       console.log(data);
+      this.getRecipes();
     });
   }
 }
