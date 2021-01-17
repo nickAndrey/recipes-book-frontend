@@ -1,9 +1,27 @@
-<div class="wrapper">
-  <nav>
-    <a routerLink="/admin/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-    <a routerLink="/admin/recipes" routerLinkActive="active">Recipes</a>
-  </nav>
-  <main>
-    <router-outlet></router-outlet>
-  </main>
-</div>
+<mat-drawer-container class="wrapper">
+  <mat-drawer mode="side" opened class="side-nav" #drawer>
+    <nav>
+      <a
+        routerLink="/admin/home"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Home
+      </a>
+      <a routerLink="/admin/recipes" routerLinkActive="active">Recipes</a>
+    </nav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <main>
+      <mat-card class="top-panel">
+        <button mat-raised-button mat-mini-fab (click)="drawer.toggle()">
+          <mat-icon>{{ drawer.opened ? 'menu_open' : 'menu' }}</mat-icon>
+        </button>
+        <a mat-raised-button routerLink="/admin/recipes/create">
+          <mat-icon>add</mat-icon> Add Recipe
+        </a>
+      </mat-card>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container>

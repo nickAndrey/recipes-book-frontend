@@ -11,13 +11,10 @@ import { ActivatedRoute } from '@angular/router';
 export class RecipesComponent implements OnInit {
   recipes: IRecipeModel[];
   displayedColumns = [
-    'id',
     'name',
-    'cooktime',
     'cookingmethod',
     'recipecategory',
     'recipecuisine',
-    'recipeingredient',
     'datecreated',
     'actions',
   ];
