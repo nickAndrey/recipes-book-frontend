@@ -31,7 +31,7 @@ export class RecipesService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
-      body: data,
+      body: { ids: data },
     };
     return this.http.delete(environment.API + 'recipes', options);
   }
