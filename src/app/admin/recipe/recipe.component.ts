@@ -25,6 +25,10 @@ export class RecipeComponent implements OnInit {
   recipeForm: FormGroup;
   formType: formType;
 
+  get randomId(): string {
+    return Math.floor(Math.random() * 100).toString();
+  }
+
   setFormBaseValue(valueToCheck: any | undefined, baseValue: string | any): any {
     return valueToCheck === undefined || baseValue ? baseValue : valueToCheck;
   }
@@ -53,17 +57,23 @@ export class RecipeComponent implements OnInit {
       recipeingredient,
       datecreated,
       name,
+      author,
+      image,
+      content,
     } = rows || {};
 
     this.recipeForm = this.fb.group({
-      id: [this.setFormBaseValue(id, '')],
-      cooktime: [this.setFormBaseValue(cooktime, '')],
-      cookingmethod: [this.setFormBaseValue(cookingmethod, '')],
-      recipecategory: [this.setFormBaseValue(recipecategory, '')],
-      recipecuisine: [this.setFormBaseValue(recipecuisine, '')],
-      recipeingredient: [this.setFormBaseValue(recipeingredient, '')],
-      datecreated: [this.setFormBaseValue(datecreated, '')],
-      name: [this.setFormBaseValue(name, '')],
+      id: [this.setFormBaseValue(id, `test_${this.randomId}`)],
+      cooktime: [this.setFormBaseValue(cooktime, `test_${this.randomId}`)],
+      cookingmethod: [this.setFormBaseValue(cookingmethod, `test_${this.randomId}`)],
+      recipecategory: [this.setFormBaseValue(recipecategory, `test_${this.randomId}`)],
+      recipecuisine: [this.setFormBaseValue(recipecuisine, `test_${this.randomId}`)],
+      recipeingredient: [this.setFormBaseValue(recipeingredient, `test_${this.randomId}`)],
+      datecreated: [this.setFormBaseValue(datecreated, `test_${this.randomId}`)],
+      name: [this.setFormBaseValue(name, `test_${this.randomId}`)],
+      author: [this.setFormBaseValue(author, `test_${this.randomId}`)],
+      image: [this.setFormBaseValue(image, `test_${this.randomId}`)],
+      content: [this.setFormBaseValue(content, `test_${this.randomId}`)],
     });
   }
 
@@ -76,7 +86,7 @@ export class RecipeComponent implements OnInit {
       });
     } else {
       this.recipeService.create(this.recipeForm.value).subscribe(async (data) => {
-        await this.router.navigate(['/admin/recipes', data]);
+        await this.router.navigate(['/admin/recipes']);
       });
     }
   }

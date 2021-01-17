@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RecipesService } from '../../services/recipes.service';
 import { IRecipeModel } from '../../../models/recipe.model';
 import { ActivatedRoute } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-recipes',
@@ -9,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./recipes.component.css'],
 })
 export class RecipesComponent implements OnInit {
-  recipes: IRecipeModel[];
+  dataSource = new MatTableDataSource();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns = [
     'name',
     'cookingmethod',
@@ -25,7 +28,8 @@ export class RecipesComponent implements OnInit {
 
   getRecipes(): void {
     this.recipeService.read().subscribe((data) => {
-      this.recipes = data.rows;
+      (this.dataSource.data as IRecipeModel[]) = data.rows;
+      this.dataSource.paginator = this.paginator;
     });
   }
 

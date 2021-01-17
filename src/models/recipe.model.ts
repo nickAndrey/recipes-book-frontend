@@ -7,4 +7,7 @@ export interface IRecipeModel {
   recipecuisine: string;
   recipeingredient: string;
   datecreated: string;
+  author: string;
+  image: string;
+  content: string;
 }
