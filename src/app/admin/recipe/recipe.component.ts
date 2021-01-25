@@ -76,7 +76,7 @@ export class RecipeComponent implements OnInit {
       image: [this.setFormBaseValue(image, '')],
       content: [this.setFormBaseValue(content, '')],
       description: [this.setFormBaseValue(description, '')],
-      setIngredient: [''],
+      setIngredient: [this.setFormBaseValue(recipeingredient, '')],
     });
 
     this.onValueChanges();
