@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IRecipeModel } from '../../../models/recipe.model';
+import { RecipesService } from '../../services/recipes.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,10 @@ import { IRecipeModel } from '../../../models/recipe.model';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  recipes: IRecipeModel[];
+  constructor(private recipeService: RecipesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.recipeService.read().subscribe((data) => (this.recipes = data.rows));
+  }
 }

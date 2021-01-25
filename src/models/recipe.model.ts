@@ -10,4 +10,5 @@ export interface IRecipeModel {
   author: string;
   image: string;
   content: string;
+  description: string;
 }

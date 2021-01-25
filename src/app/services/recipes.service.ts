@@ -35,4 +35,12 @@ export class RecipesService {
     };
     return this.http.delete(environment.API + 'recipes', options);
   }
+
+  dropTable(reason: string): Observable<any> {
+    return this.http.post(environment.API + 'recipes/drop_table', { reason });
+  }
+
+  createTable(): Observable<any> {
+    return this.http.get(environment.API + 'recipes/create_table');
+  }
 }

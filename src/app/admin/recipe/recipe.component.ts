@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RecipesService } from '../../services/recipes.service';
 import { IRecipeModel } from '../../../models/recipe.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import * as moment from 'moment';
 
 export type formType = 'create' | 'edit';
@@ -60,25 +60,41 @@ export class RecipeComponent implements OnInit {
       author,
       image,
       content,
+      description,
     } = rows || {};
 
     this.recipeForm = this.fb.group({
-      id: [this.setFormBaseValue(id, `test_${this.randomId}`)],
-      cooktime: [this.setFormBaseValue(cooktime, `test_${this.randomId}`)],
-      cookingmethod: [this.setFormBaseValue(cookingmethod, `test_${this.randomId}`)],
-      recipecategory: [this.setFormBaseValue(recipecategory, `test_${this.randomId}`)],
-      recipecuisine: [this.setFormBaseValue(recipecuisine, `test_${this.randomId}`)],
-      recipeingredient: [this.setFormBaseValue(recipeingredient, `test_${this.randomId}`)],
-      datecreated: [this.setFormBaseValue(datecreated, `test_${this.randomId}`)],
-      name: [this.setFormBaseValue(name, `test_${this.randomId}`)],
-      author: [this.setFormBaseValue(author, `test_${this.randomId}`)],
-      image: [this.setFormBaseValue(image, `test_${this.randomId}`)],
-      content: [this.setFormBaseValue(content, `test_${this.randomId}`)],
+      id: [this.setFormBaseValue(id, '')],
+      cooktime: [this.setFormBaseValue(cooktime, '')],
+      cookingmethod: [this.setFormBaseValue(cookingmethod, '')],
+      recipecategory: [this.setFormBaseValue(recipecategory, '')],
+      recipecuisine: [this.setFormBaseValue(recipecuisine, '')],
+      recipeingredient: [this.setFormBaseValue(recipeingredient, '')],
+      datecreated: [this.setFormBaseValue(datecreated, '')],
+      name: [this.setFormBaseValue(name, '')],
+      author: [this.setFormBaseValue(author, '')],
+      image: [this.setFormBaseValue(image, '')],
+      content: [this.setFormBaseValue(content, '')],
+      description: [this.setFormBaseValue(description, '')],
+      setIngredient: [''],
     });
+
+    this.onValueChanges();
+  }
+
+  onValueChanges(): void {
+    this.recipeForm.get('setIngredient').valueChanges.subscribe((value) => {
+      this.getControl('recipeingredient').setValue(value.split(/[,]+/));
+    });
+  }
+
+  getControl(controlName: string): AbstractControl {
+    return this.recipeForm.controls[controlName];
   }
 
   onSubmit(): void {
     this.recipeForm.get('datecreated').setValue(moment().format());
+    this.recipeForm.get('setIngredient').disable();
 
     if (this.formType === 'edit') {
       this.recipeService.update(this.recipeID, this.recipeForm.value).subscribe(async (data) => {
