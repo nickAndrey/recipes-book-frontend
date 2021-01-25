@@ -8,8 +8,9 @@ import { ProductsComponent } from './products/products.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { AdminComponent } from './admin.component';
 import { RecipeComponent } from './recipe/recipe.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { DialogPromptComponent } from './dialog-prompt/dialog-prompt.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MaterialModule } from '../material/material.module';
     RecipesComponent,
     AdminComponent,
     RecipeComponent,
+    DialogPromptComponent,
   ],
-  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, MaterialModule],
+  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, MaterialModule, FormsModule],
 })
 export class AdminModule {}

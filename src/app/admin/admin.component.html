@@ -20,6 +20,15 @@
         <a mat-raised-button routerLink="/admin/recipes/create">
           <mat-icon>add</mat-icon> Add Recipe
         </a>
+        <a mat-raised-button routerLink="/">
+          <mat-icon>launch</mat-icon>
+        </a>
+        <button mat-raised-button (click)="openDialog()">
+          <mat-icon>remove_circle_outline</mat-icon> drop table
+        </button>
+        <button mat-raised-button (click)="create()">
+          <mat-icon>add_circle_outline</mat-icon> create table
+        </button>
       </mat-card>
       <router-outlet></router-outlet>
     </main>
