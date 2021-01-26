@@ -59,8 +59,8 @@ export class RecipeComponent implements OnInit {
       name,
       author,
       image,
-      content,
       description,
+      content_md
     } = rows || {};
 
     this.recipeForm = this.fb.group({
@@ -74,7 +74,7 @@ export class RecipeComponent implements OnInit {
       name: [this.setFormBaseValue(name, '')],
       author: [this.setFormBaseValue(author, '')],
       image: [this.setFormBaseValue(image, '')],
-      content: [this.setFormBaseValue(content, '')],
+      content: [this.setFormBaseValue(content_md, '')],
       description: [this.setFormBaseValue(description, '')],
       setIngredient: [this.setFormBaseValue(recipeingredient, '')],
     });

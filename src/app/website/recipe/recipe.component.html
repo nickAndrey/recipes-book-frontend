@@ -1,1 +1,11 @@
-<p>recipe works!</p>
+<ng-container *ngIf="recipe">
+  <h1>{{ recipe.name }}</h1>
+
+  <ul>
+    <li *ngFor="let ingredient of recipe.recipeingredient">
+      {{ ingredient }}
+    </li>
+  </ul>
+
+  <div [innerHTML]="recipe.content"></div>
+</ng-container>
