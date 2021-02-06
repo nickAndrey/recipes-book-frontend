@@ -5,27 +5,40 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background: var(--light-grey);
 }
 
 .recipe-img-container {
   flex-grow: 1;
   max-height: 250px;
 }
-
 .recipe-img-container .recipe-img {
   max-width: 100%;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: all .3s;
+}
+
+.recipe-img-container .recipe-img:hover {
+  box-shadow: -5px -5px var(--base-green);
+  transform: translate(5px, 5px);
 }
 
 .recipe-name {
-  font-size: 1.5em;
+  font-size: 1.2em;
+  font-weight: bold;
   color: var(--base-black);
   text-decoration: none;
-  padding: 15px;
+  padding: 15px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+  transition: all .3s;
+}
+
+.recipe-name:hover {
+  color: var(--base-green);
 }
 
 .recipe-description {

@@ -1,10 +1,12 @@
 <h1>Top rated recipes</h1>
 
-<ol>
-  <li *ngFor="let recipe of recipes">
-    <h3>
-      <a routerLink="recipe/{{ recipe.id }}">{{ recipe.name }}</a>
-    </h3>
-    <p>{{ recipe.description }}</p>
-  </li>
-</ol>
+<div class="container">
+  <div class="recipe-row">
+    <app-food-card
+      *ngFor="let recipe of recipes"
+      [recipeId]="recipe.id"
+      [name]="recipe.name"
+      [imageUrl]="recipe.image"
+    ></app-food-card>
+  </div>
+</div>

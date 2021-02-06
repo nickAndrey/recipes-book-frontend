@@ -16,6 +16,6 @@ export class RecipeComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((item) => (this.recipeId = item.id));
-    this.recipeService.read(this.recipeId).subscribe((data) => (this.recipe = data[0]));
+    this.recipeService.read(this.recipeId).subscribe((data) => (this.recipe = data.rows[0]));
   }
 }

@@ -14,3 +14,8 @@
 .top-nav .nav-link.active {
   color: var(--base-green);
 }
+
+.top-nav .move-right {
+  justify-self: end;
+  color: red;
+}

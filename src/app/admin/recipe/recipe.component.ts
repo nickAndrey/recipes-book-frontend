@@ -39,7 +39,7 @@ export class RecipeComponent implements OnInit {
 
     if (this.formType === 'edit') {
       this.recipeService.read(this.recipeID).subscribe((data) => {
-        this.recipe = data[0];
+        this.recipe = data.rows[0];
         this.initForm(this.recipe);
       });
     } else {

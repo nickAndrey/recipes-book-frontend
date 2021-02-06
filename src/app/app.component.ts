@@ -10,14 +10,5 @@ export class AppComponent {
   title = 'frontend';
   data: any;
 
-  constructor(private appService: AppService) {
-    this.appService.getHomePage().subscribe(
-      (data) => {
-        this.data = data;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+  constructor(private appService: AppService) {}
 }
