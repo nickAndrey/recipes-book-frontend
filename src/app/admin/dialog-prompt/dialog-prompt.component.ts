@@ -4,7 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-dialog-prompt',
   templateUrl: './dialog-prompt.component.html',
-  styleUrls: ['./dialog-prompt.component.css'],
+  styleUrls: ['./dialog-prompt.component.scss'],
 })
 export class DialogPromptComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<any>, @Inject(MAT_DIALOG_DATA) public data: any) {}

@@ -2,9 +2,11 @@
   height: 100vh;
 }
 
-.wrapper .side-nav {
-  width: 200px;
-  background: var(--base-black);
+.wrapper {
+  .side-nav {
+    width: 200px;
+    background: var(--base-black);
+  }
 }
 
 .wrapper nav {
