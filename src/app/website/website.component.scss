@@ -1,3 +1,48 @@
-main {
-  padding: 0 15px;
+#website-layout {
+  display: flex;
+  flex-direction: column;
+  background: var(--layout-background);
+  height: 100vh;
+
+  #website-header {
+    background: var(--white);
+
+    .website-info {
+      margin: auto;
+      text-align: center;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--light-grey);
+      padding: 93px 0;
+
+      .title {
+        font-size: 2em;
+        font-weight: lighter;
+        margin: 0 0 25px 0;
+      }
+
+      .description {
+        font-size: 1.1em;
+        font-weight: lighter;
+        margin: 0;
+      }
+    }
+
+    .website-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 0;
+
+      &__links {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        &__link:not(:last-child) {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
 }

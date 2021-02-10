@@ -1,3 +1,27 @@
-<main>
-  <router-outlet></router-outlet>
-</main>
+<div id="website-layout">
+  <header id="website-header">
+    <div class="website-info">
+      <h1 class="title">recipes</h1>
+      <p class="description">find out the best recipes which will fit for you</p>
+    </div>
+    <nav class="website-nav">
+      <ul class="website-nav__links">
+        <li class="website-nav__links__link">
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            Home
+          </a>
+        </li>
+        <li class="website-nav__links__link">
+          <a routerLink="/" routerLinkActive="active">About</a>
+        </li>
+        <li class="website-nav__links__link">
+          <a routerLink="/" routerLinkActive="active">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <aside></aside>
+</div>
